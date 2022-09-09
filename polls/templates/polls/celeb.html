@@ -1,0 +1,8 @@
+<ul>
+    {% for celeb in celeb_list %}
+        <li>
+            <a href={% url 'polls:celeb_detail' celeb.id %}>{{celeb.name}}</a>
+        </li>
+    {% endfor %}
+
+</ul>

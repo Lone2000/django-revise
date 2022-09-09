@@ -5,7 +5,7 @@ from django.http import HttpResponse, Http404
 from django.template import loader
 from django.shortcuts import render, get_object_or_404
 
-from .models import Question
+from .models import Question, Celebritie
 
 
 def index(request):
@@ -25,6 +25,18 @@ def results(request, question_id):
 
 def vote(request, question_id):
     return HttpResponse(f"You're voting question {question_id}")
+
+
+def celeb(request):
+    celebs = Celebritie.objects.all()
+    context = {'celeb_list': celebs}
+    return render(request, 'polls/celeb.html', context)
+
+def celeb_detail(request, celeb_id):
+    celeb = Celebritie.objects.get(pk=celeb_id)
+    context = { 'celebinfo' : celeb }
+    return render(request, "polls/celeb_detail.html", context)
+
 
 
 

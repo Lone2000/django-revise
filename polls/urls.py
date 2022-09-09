@@ -20,6 +20,11 @@ urlpatterns = [
     # Example: polls/5/vote
     path('<int:question_id>/vote/', views.vote, name='vote'),
 
+    #Example: polls/celeb
+    path('celeb/', views.celeb, name='celeb'),
+
+    #Example: polls/celeb/1
+    path('celeb/<int:celeb_id>', views.celeb_detail, name='celeb_detail'),
 
 ] 
 

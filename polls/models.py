@@ -1,4 +1,5 @@
 import datetime
+from xmlrpc.client import DateTime
 
 from django.db import models
 from django.utils import timezone
@@ -25,3 +26,7 @@ class Choice(models.Model):
         return self.choice_text
 
 
+class Celebritie(models.Model):
+    name = models.CharField(max_length=255)
+    date_of_birth = models.DateTimeField('DOB')
+    height = models.DecimalField(max_digits=5, decimal_places=2)
